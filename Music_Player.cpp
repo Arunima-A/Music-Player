@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstring> // for strcpy() and strcmp()
-#include <cstdlib> // for exit()
+#include <cstring> 
+#include <cstdlib> 
 
 using namespace std;
 
@@ -16,8 +16,8 @@ class MusicPlayer {
 private:
     SongNode *head;
     SongNode *tail;
-    SongNode *lastPlayed; // To keep track of the last played song
-    SongNode *recentlyPlayed; // To maintain the recently played list
+    SongNode *lastPlayed; 
+    SongNode *recentlyPlayed; 
 
 public:
     MusicPlayer() {
@@ -97,7 +97,7 @@ public:
         }
     }
 
-    // Function to count total songs in the playlist
+    
     void countTotalSongs() {
         int count = 0;
         SongNode *current = head;
@@ -108,7 +108,7 @@ public:
         cout << "Total songs in the playlist: " << count << endl;
     }
 
-    // Function to search for a song in the playlist
+    
     void searchSong(const string& songName) {
         SongNode *current = head;
         while (current != nullptr) {
@@ -121,7 +121,7 @@ public:
         cout << "Song '" << songName << "' not found in the playlist." << endl;
     }
 
-    // Function to play a song
+   
     void playSong(const string& songName) {
         SongNode *current = head;
         while (current != nullptr) {
@@ -136,7 +136,7 @@ public:
         cout << "Song '" << songName << "' not found in the playlist." << endl;
     }
 
-    // Function to display the recently played list
+    
     void displayRecentlyPlayed() {
         if (recentlyPlayed == nullptr) {
             cout << "No songs have been recently played." << endl;
@@ -151,7 +151,7 @@ public:
         }
     }
 
-    // Function to display the last played song
+    
     void displayLastPlayed() {
         if (lastPlayed == nullptr) {
             cout << "No song has been last played yet." << endl;
@@ -160,14 +160,14 @@ public:
         }
     }
 
-    // Function to sort the playlist alphabetically
+    
     void sortPlaylist() {
         if (head == nullptr) {
             cout << "Playlist is empty. Nothing to sort." << endl;
             return;
         }
 
-        // Bubble sort algorithm for doubly linked list
+        
         SongNode *i, *j;
         string temp;
         for (i = head; i != nullptr; i = i->next) {
@@ -182,7 +182,7 @@ public:
         cout << "Playlist sorted alphabetically." << endl;
     }
 
-    // Function to save the playlist to a file
+   
     void saveToFile() {
         ofstream file("playlist.txt");
         if (!file.is_open()) {
@@ -199,7 +199,7 @@ public:
         cout << "Playlist saved to file 'playlist.txt'." << endl;
     }
 
-    // Function to load the playlist from a file
+   
     void loadFromFile() {
         ifstream file("playlist.txt");
         if (!file.is_open()) {
@@ -215,7 +215,7 @@ public:
         cout << "Playlist loaded from file 'playlist.txt'." << endl;
     }
 
-    // Destructor to free allocated memory
+   
     ~MusicPlayer() {
         while (head != nullptr) {
             SongNode *temp = head;
@@ -229,7 +229,7 @@ public:
     }
 
 private:
-    // Helper function to add a song to the recently played list
+    
     void addToRecentlyPlayed(const string& songName) {
         SongNode *newNode = new SongNode;
         newNode->song = songName;
